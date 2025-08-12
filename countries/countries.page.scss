@@ -1,0 +1,50 @@
+.CountryItemContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 16px;
+  margin-bottom: 24px;
+  max-width: 400px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.CountryItemContainer img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.CountryItemContainer h2 {
+  margin: 10px 0 16px 0;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.CountryItemContainer ion-button {
+  width: 100%;
+  margin: 6px 0;
+}
+
+@media (max-width: 600px) {
+  .CountryItemContainer {
+    padding: 8px;
+    margin-bottom: 14px;
+    max-width: 98vw;
+  }
+  .CountryItemContainer img {
+    max-width: 100%;
+  }
+}
+
+#CountryImage {
+  width: 100%;
+}
