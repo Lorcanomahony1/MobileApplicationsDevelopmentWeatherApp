@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>News for {{ ClickedCountry.name.common }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">News for {{ ClickedCountry.name.common }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item *ngFor="let article of NewsInfo.results">
+      <div style="width:100%">
+        <img *ngIf="article.image_url" [src]="article.image_url" style="width: 100%; max-width: 300px; margin-bottom: 8px;">
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.description }}</p>
+      </div>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="!NewsInfo.results || NewsInfo.results.length === 0">
+    <h2>No News found for {{ ClickedCountry.name.common }}</h2>
+  </div>
+</ion-content>

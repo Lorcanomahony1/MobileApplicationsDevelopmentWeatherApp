@@ -25,6 +25,8 @@ import { MyDataService } from '../services/my-data.service';
   providers: [MyDataService]
 })
 
+
+
 export class HomePage implements OnInit {
   searchText = '';
   Keyword: string = '';
@@ -47,3 +49,46 @@ export class HomePage implements OnInit {
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.css']
+})
+
+export class TestComponent implements OnInit {
+  newName: string = "";
+  names: string[] = [];
+
+  hiddenNumber!: number;
+  hide!: boolean;
+  guess!: number;
+
+  constructor() {
+    console.log("constructor");
+  }
+
+  ngOnInit(): void {
+    this.names = ["Alan", "Bob", "Chloe"];
+    this.hiddenNumber = 5;
+    this.hide = true;
+  }
+}
+
+
+*/

@@ -33,6 +33,7 @@ import { HttpOptions } from '@capacitor/core';
 })
 export class CountriesPage implements OnInit {
 
+
   keyword: string = "";
   apiKey = "2ee2ed84";
   CountryInfo: any;
@@ -47,6 +48,12 @@ export class CountriesPage implements OnInit {
     this.getKW();
   }
 
+  //THIS GETS THE KW(KEYWORD) THAT WAS TYPED IN THE SEARCHBOX IN THE HOME PAGE
+  //THEN IT ADDS THAT KEYWORD TO THE END OF THE API URL
+  //THEN IT USES GET TO GET THE DATA FROM THE API
+  //THEN IT SETS THE COUNTRYINFO VARIABLE TO THE DATA FROM THE API
+  //THEN IT SHOWS THE COUNTRY INFO JSON OBJECT IN THE CONSOLE
+  //TLDR: THIS GETS THE KEYWORD TYPED IN THE SEARCHBAR AND CALLS API WITH IT
   async getKW() {
     this.keyword = await this.ds.get("kw");
     this.options.url = this.options.url.concat(this.keyword);
@@ -57,6 +64,8 @@ export class CountriesPage implements OnInit {
     return this.CountryInfo; 
   }
 
+
+  //THIS FIND OUT WHAT COUNTRY YOU CLICKED ON AND 
   async getCountry(country: any) {
     let ClickedCountry = await country
 
