@@ -11,24 +11,12 @@
     </ion-card-header>
     <img [src]="country.flags.png" [alt]="country.name.common + ' flag'" style="width: 100px; height: auto; margin: 16px auto; display: block;" /><br>
     <ion-button [routerLink]="['/news']" (click)="getCountry(country)">NEWS</ion-button><br>
+    <ion-button [routerLink]="['/weather']" (click)="getCountry(country)" >WEATHER</ion-button><br>
+    <ion-button [routerLink]="['/national-anthem']" (click)="getCountry(country)">National Anthem</ion-button>
   </ion-card>
 </ion-content>
 
 
-<!--
-country code from video
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>CountryDetails</ion-title>
-  </ion-toolbar>
-</ion-header>e
-
-<ion-content [fullscreen]="true">
-  <ion-list>
-    <ion-item *ngFor="let a of countryAttrs">{{a}}</ion-item>
-  </ion-list>
-</ion-content>
--->
 
 
 

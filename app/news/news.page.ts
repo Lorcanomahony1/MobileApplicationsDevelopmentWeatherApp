@@ -65,7 +65,12 @@ export class NewsPage implements OnInit, OnDestroy {
   }
 
 
-
+  //THIS GETS THE KW(KEYWORD) THAT WAS TYPED IN THE SEARCHBOX IN THE HOME PAGE
+  //THEN IT ADDS THAT KEYWORD TO THE END OF THE API URL
+  //THEN IT USES GET TO GET THE DATA FROM THE API
+  //THEN IT SETS THE COUNTRYINFO VARIABLE TO THE DATA FROM THE API
+  //THEN IT SHOWS THE COUNTRY INFO JSON OBJECT IN THE CONSOLE
+  //TLDR: THIS GETS THE KEYWORD TYPED IN THE SEARCHBAR AND CALLS API WITH IT
 
 
  
@@ -85,17 +90,12 @@ export class NewsPage implements OnInit, OnDestroy {
     return this.countryCode;
   }
 
-  //THIS GETS THE KW(KEYWORD) THAT WAS TYPED IN THE SEARCHBOX IN THE HOME PAGE
-  //THEN IT ADDS THAT KEYWORD TO THE END OF THE API URL
-  //THEN IT USES GET TO GET THE DATA FROM THE API
-  //THEN IT SETS THE COUNTRYINFO VARIABLE TO THE DATA FROM THE API
-  //THEN IT SHOWS THE COUNTRY INFO JSON OBJECT IN THE CONSOLE
-  //TLDR: THIS GETS THE KEYWORD TYPED IN THE SEARCHBAR AND CALLS API WITH IT
   // THIS GETS THE OUTPUT FROM THE COUNTRYCODE USED ON THE NEWS API
   async getNews() {
     let countryCode = await this.getCountryCode(); 
     const url = `https://newsdata.io/api/1/news?apikey=${this.apiKeyNews}&country=${countryCode}&language=en`;
     console.log("This is the url" + url)
+
     const options: HttpOptions = { url };
     let NewsResult = await this.mhs.get(options);
     console.log("This is the NewsResult" + NewsResult);

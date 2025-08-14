@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Weather for {{ ClickedCountry.name.common }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Weather for {{ ClickedCountry.name.common }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div *ngIf="weather">
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <img *ngIf="weather.weather[0]?.icon" [src]="'https://openweathermap.org/img/wn/' + weather.weather[0].icon + '@2x.png'" alt="Weather icon" style="width:48px; height:48px;">
+      <span style="font-size: 2em;">{{ capitalCity }}</span>
+    </div>
+    <div>
+      <span style="font-size: 1.5em;">{{ weather.main.temp }} (metric)</span>
+    </div>
+    <div style="margin-top: 10px; color: #888;">
+      <span>Latitude: {{ latitude }}, Longitude: {{ longitude }}</span>
+    </div>
+  </div>
+  <div *ngIf="!weather">
+    <p>No weather data found.</p>
+    <div style="margin-top: 10px; color: #888;">
+      <span>Latitude: {{ latitude }}, Longitude: {{ longitude }}</span>
+    </div>
+  </div>
+</ion-content>

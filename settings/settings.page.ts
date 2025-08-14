@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { IonCheckbox } from '@ionic/angular/standalone';
-
 import {
   IonList
 } from '@ionic/angular/standalone';
@@ -29,7 +28,6 @@ export class SettingsPage implements OnInit {
 
 
   constructor() { }
-
 
 
   ngOnInit() {
