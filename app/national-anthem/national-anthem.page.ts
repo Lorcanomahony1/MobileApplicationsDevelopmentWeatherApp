@@ -4,11 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MyDataService } from '../services/my-data.service';
 import { MyHttpService } from '../services/my-http.service';
 import { HttpOptions } from '@capacitor/core';
-//import { DataService} from '../services/date.service';
 
 
 @Component({
@@ -34,6 +33,7 @@ export class NationalAnthemPage implements OnInit {
   CountryInfo: any;
   searchQuery: any;
   nationalAnthem: any;
+  cleanedSrc: any;
   keyword: string = "";
   apiKey = "2ee2ed84";
   countries: any = [];
@@ -43,7 +43,7 @@ export class NationalAnthemPage implements OnInit {
 
 
   
-  constructor(private ds: MyDataService, private mhs: MyHttpService, private router: Router) {}
+  constructor(private ds: MyDataService, private mhs: MyHttpService, private router: Router, private sanitizer: DomSanitizer) {}
 
 
  
@@ -73,6 +73,10 @@ export class NationalAnthemPage implements OnInit {
     this.nationalAnthem = await this.mhs.get(options);
     this.nationalAnthemSource = await ('https://www.youtube.com/embed/' + this.nationalAnthem.items[0].id.videoId)
     console.log("This is the NationalAnthem url " + this.nationalAnthemSource);
+    // source = https://dev.to/ayyash/sanitizing-background-image-url-in-angular-5c584
+    // https://angular.dev/api/platform-browser/DomSanitizer
+    this.cleanedSrc = this.sanitizer.bypassSecurityTrustResourceUrl(this.nationalAnthemSource);
+    console.log(this.cleanedSrc)
 
   }
 

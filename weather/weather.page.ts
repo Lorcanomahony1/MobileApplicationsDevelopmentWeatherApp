@@ -31,7 +31,7 @@ export class WeatherPage implements OnInit {
 
   async ngOnInit() {
     this.ClickedCountry = await this.ds.get('ClickedCountry');
-    await this.getWeatherInfo();
+    await this.getWeatherInfo(); 
   }
 
 //THIS GETS THE COUNTRY INFO SO I CAN USE IT ON THE WEATHER API
