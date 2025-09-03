@@ -6,8 +6,7 @@ It uses various API's to do this
 
 
 
-Innovation
-National Anthem Button Feature
+The National Anthem Button Feature.
 The innovation added to this project is a National Anthem Button feature, integrated into the countries page where countries are displayed using data from the REST Countries API.
 Functionality
 
