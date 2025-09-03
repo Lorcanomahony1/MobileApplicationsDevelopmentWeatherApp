@@ -1,48 +1,35 @@
+# Country Information Mobile Application
 
-This is a mobile application that uses Ionic, typescript, css and HTML
-It allows the user to enter the name of any country and view the weather, news, national anthem and flag of that country.
+This is a mobile application built using **Ionic**, **TypeScript**, **CSS**, and **HTML**. It allows users to enter the name of any country and view its weather, news, national anthem, and flag. The application leverages various APIs to fetch and display this information.
 
-It uses various API's to do this
+## Requirements to Run the Project
 
-Requirements to run this project
-* Ionic
-* HTML
-* CSS
-* Angular JS
-  
+- **Ionic**: Framework for building the mobile application.
+- **HTML**: For structuring the application.
+- **CSS**: For styling the application.
+- **Angular JS**: For managing the application's frontend logic.
 
+## Key Feature: National Anthem Button
 
+The innovation added to this project is a **national anthem button** on the countries page, where countries are displayed using the **RestCountries API**. Each country has a dedicated national anthem button. When clicked, it plays a video of the country's national anthem.
 
+### How It Works
+- The application uses the **YouTube API** to search for the country's name combined with "national anthem."
+- The URL of the first search result is retrieved and played in an HTML iframe.
+- To ensure the URL is safely embedded, the following Angular code is used to bypass Angular's security limitations, marking the URL as trusted:
 
- The innovation I added to this project was a national anthem button
- The national anthem buttons are on the countries page where the countries are 
-displayed from the restcountries api
- each country has a national anthem button
- When the national anthem button is clicked it plays a video of the national anthem 
-for that country
+```typescript
+// Source: https://dev.to/ayyash/sanitizing-background-image-url-in-angular-5c584
+// https://angular.dev/api/platform-browser/DomSanitizer
+this.cleanedSrc = this.sanitizer.bypassSecurityTrustResourceUrl(this.nationalAnthemSource);
+```
 
-<img width="705" height="530" alt="iono" src="https://github.com/user-attachments/assets/939bf0e2-d6ca-48f8-845a-8aac3eefbc34" />
+This code ensures that Angular does not block the URL for security reasons, as external URLs could potentially be unsafe.
 
-It does this by using the youtube API to search youtube for the name of the 
-country clicked + “national anthemˮ
- then it takes the url of the first result and plays it in a html iframe 
-But before it is played, the url has to transformed using this code,
- this line of code tells angular that the url is safe and can bypass the security 
-limitations of angular
- if this is not done, then the url will be blocked by angular for security reasons 
-because the url could be unsafe
- This code tells angular that the url can bypass the security limitations because it is 
-trusted
- // source = https://dev.to/ayyash/sanitizing-background-image-url-in-angul
- ar-5c584
- // https://angular.dev/api/platform-browser/DomSanitizer
- this.cleanedSrc = this.sanitizer.bypassSecurityTrustResourceUrl(this.nation
- alAnthemSource);
- REFERENCES
- Ayyash 2022 'Sanitizing background image url in Angular'. DEV Community. 
-Available at: 
-https://dev.to/ayyash/sanitizing-background-image-url-in-angular
-5c58 Accessed: 15 August 2025.
- "Angular" (no date) 'DomSanitizer'. Angular Dev. Available at: 
-https://angular.dev/api/platform-browser/DomSanitizer Accessed: 15 August 
-2025
+### Screenshot
+![National Anthem Feature](https://github.com/user-attachments/assets/939bf0e2-d6ca-48f8-845a-8aac3eefbc34)
+
+## References
+
+- Ayyash (2022) 'Sanitizing background image url in Angular'. *DEV Community*. Available at: [https://dev.to/ayyash/sanitizing-background-image-url-in-angular-5c584](https://dev.to/ayyash/sanitizing-background-image-url-in-angular-5c584) (Accessed: 15 August 2025).
+- Angular (n.d.) 'DomSanitizer'. *Angular Dev*. Available at: [https://angular.dev/api/platform-browser/DomSanitizer](https://angular.dev/api/platform-browser/DomSanitizer) (Accessed: 15 August 2025).
